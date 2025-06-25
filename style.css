@@ -8,6 +8,28 @@ body {
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    #landingPage {
+        padding: 0;
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
 a {
     color: inherit;
 }
@@ -386,6 +408,11 @@ input {
     .loading-progress {
         width: 150px;
     }
+
+    .map-image {
+        max-height: 300px;
+        object-fit: contain;
+    }
 }
 
 #tmp {
@@ -511,11 +538,11 @@ input {
 }
 
 .landing-left {
-    flex: 1;
+    flex: 0.7;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 30px;
     position: relative;
     background: rgba(0, 0, 0, 0.1);
 }
@@ -565,23 +592,23 @@ input {
 }
 
 .landing-right {
-    flex: 1;
+    flex: 1.3;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 40px;
+    justify-content: flex-start;
+    padding: 50px 40px 80px 40px;
     color: #EBAD06;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.2);
 }
 
 .landing-title {
-    font-size: 2.0em;
+    font-size: 2.2em;
     font-weight: 900;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
     color: #EBAD06;
-    line-height: 1.0;
+    line-height: 1.2;
     animation: fadeInUp 0.8s ease 0.2s both;
     text-align: center;
 }
@@ -589,10 +616,10 @@ input {
 .landing-subtitle {
     font-size: 1.0em;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #EBAD06;
     opacity: 0.9;
-    line-height: 1.3;
+    line-height: 1.4;
     animation: fadeInUp 0.8s ease 0.4s both;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -604,8 +631,8 @@ input {
 
 .locations-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
     margin-bottom: 20px;
 }
 
@@ -613,10 +640,10 @@ input {
     background: rgba(235, 173, 6, 0.1);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(235, 173, 6, 0.3);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 10px 12px;
-    color: #EBAD06;
-    font-size: 12px;
+    color: #FFFFFF;
+    font-size: 13px;
     font-weight: 700;
     cursor: pointer;
     text-align: left;
@@ -626,7 +653,7 @@ input {
     display: flex;
     align-items: center;
     min-height: 40px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .location-btn::before {
@@ -663,12 +690,12 @@ input {
     height: 22px;
     background: rgba(235, 173, 6, 0.4);
     border-radius: 50%;
-    font-size: 10px;
+    font-size: 11px;
     margin-right: 10px;
     font-weight: 900;
     flex-shrink: 0;
-    color: #EBAD06;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .location-text {
@@ -690,7 +717,8 @@ input {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(235, 173, 6, 0.5);
-    align-self: center;
+    margin: 0 auto;
+    display: block;
     animation: fadeInUp 0.8s ease 0.8s both;
     text-shadow: none;
 }
@@ -698,42 +726,83 @@ input {
 .start-tour-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(235, 173, 6, 0.7);
+    background: linear-gradient(135deg, #F2BE0A, #EBAD06);
 }
 
 .start-tour-btn:active {
     transform: translateY(-1px);
 }
 
+.developer-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(235, 173, 6, 0.2);
+    animation: fadeInUp 0.8s ease 1s both;
+}
+
+.developer-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #EBAD06;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.developer-list {
+    font-size: 13px;
+    color: rgba(235, 173, 6, 0.9);
+    line-height: 1.5;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-weight: 700;
+}
+
 @media (max-width: 768px) {
     #landingPage {
         padding: 0;
+        height: auto;
+        min-height: 100vh;
     }
 
     .landing-content {
         flex-direction: column;
         width: 100vw;
-        height: 100vh;
-    }
-
-    .landing-left {
-        flex: 0 0 auto;
-        padding: 20px;
-        height: 40vh;
-    }
-
-    .map-container {
-        max-width: 280px;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
     }
 
     .landing-right {
         flex: 1;
         padding: 20px;
-        height: 60vh;
-        overflow: hidden;
+        order: 1;
+    }
+
+    .landing-left {
+        flex: 0 0 auto;
+        padding: 20px;
+        height: auto;
+        min-height: 40vh;
+        order: 2;
+        margin-bottom: 20px;
+    }
+
+    .map-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .map-image {
+        max-height: 300px;
+        object-fit: contain;
     }
 
     .landing-title {
-        font-size: 1.8em;
+        font-size: 1.9em;
         margin-bottom: 15px;
     }
 
@@ -743,13 +812,13 @@ input {
     }
 
     .locations-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        margin-bottom: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-bottom: 15px;
     }
 
     .location-btn {
-        font-size: 12px;
+        font-size: 13px;
         padding: 12px 15px;
         min-height: 42px;
     }
@@ -757,13 +826,34 @@ input {
     .location-number {
         min-width: 24px;
         height: 24px;
-        font-size: 10px;
+        font-size: 11px;
         margin-right: 12px;
     }
 
     .start-tour-btn {
         font-size: 15px;
         padding: 14px 30px;
+    }
+
+    .developer-info {
+        margin-top: 15px;
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+
+    .developer-title {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .developer-list {
+        font-size: 11px;
+        line-height: 1.3;
+    }
+
+    .map-image {
+        max-height: 300px;
+        object-fit: contain;
     }
 }
 
