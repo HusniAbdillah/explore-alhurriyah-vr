@@ -1,0 +1,36 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://explore-alhurriyah-vr.vercel.app/sitemap.xml
+
+# Disallow sensitive or non-public directories
+Disallow: /js/
+Disallow: /*.json$
+Disallow: /sw.js
+
+# Allow important assets for SEO
+Allow: /images/
+Allow: /panoramas/
+Allow: /css/
+Allow: /manifest.json
+
+# Crawl delay to be respectful
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Social media bots
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /

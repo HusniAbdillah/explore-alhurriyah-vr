@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://explore-alhurriyah-vr.vercel.app/</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://explore-alhurriyah-vr.vercel.app/images/PetaIPB.png</image:loc>
+      <image:caption>Peta Kawasan Masjid Al-Hurriyyah IPB</image:caption>
+      <image:title>Virtual Tour Map</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://explore-alhurriyah-vr.vercel.app/panoramas/Titik_Utama.jpg</image:loc>
+      <image:caption>Panorama 360° Titik Utama Masjid Al-Hurriyyah</image:caption>
+      <image:title>Titik Utama Virtual Tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://explore-alhurriyah-vr.vercel.app/panoramas/GOR.jpg</image:loc>
+      <image:caption>Panorama 360° Gedung Olahraga IPB</image:caption>
+      <image:title>GOR IPB Virtual Tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://explore-alhurriyah-vr.vercel.app/panoramas/Lantai_1_AlHurriyyah.jpg</image:loc>
+      <image:caption>Panorama 360° Lantai 1 Masjid Al-Hurriyyah</image:caption>
+      <image:title>Masjid Al-Hurriyyah Lt.1 Virtual Tour</image:title>
+    </image:image>
+  </url>
+</urlset>

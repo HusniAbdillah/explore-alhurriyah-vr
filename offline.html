@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Virtual Tour Al-Hurriyyah</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .offline-container {
+            max-width: 500px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .offline-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #EBAD06;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #EBAD06;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .retry-btn {
+            background: linear-gradient(45deg, #EBAD06, #D4A005);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .retry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(235, 173, 6, 0.4);
+        }
+        
+        .features {
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .feature {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature::before {
+            content: "✓";
+            color: #EBAD06;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1>Koneksi Terputus</h1>
+        <p>
+            Maaf, Anda sedang offline. Virtual Tour Al-Hurriyyah memerlukan koneksi internet untuk menampilkan panorama 360° yang memukau.
+        </p>
+        
+        <button class="retry-btn" onclick="location.reload()">
+            Coba Lagi
+        </button>
+        
+        <div class="features">
+            <div class="feature">11 lokasi panorama 360° menawan</div>
+            <div class="feature">Navigasi interaktif yang mudah</div>
+            <div class="feature">Audio ambient yang menenangkan</div>
+            <div class="feature">Optimized untuk mobile & desktop</div>
+        </div>
+    </div>
+    
+    <script>
+        
+        window.addEventListener('online', function() {
+            location.reload();
+        });
+        
+        setInterval(function() {
+            if (navigator.onLine) {
+                location.reload();
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
