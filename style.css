@@ -31,6 +31,23 @@ html {
         min-height: 100vh;
         overflow: visible !important;
     }
+    
+    canvas {
+        touch-action: pan-x pan-y;
+    }
+    
+    * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    #container canvas {
+        touch-action: manipulation;
+    }
 }
 
 a {

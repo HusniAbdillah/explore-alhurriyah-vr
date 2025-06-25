@@ -645,6 +645,11 @@
           preloader.preloadNearbyPanoramas("Titik_Utama.jpg");
         }, 2000);
 
+        controls.touches = {
+          ONE: THREE.TOUCH.ROTATE,
+          TWO: THREE.TOUCH.DOLLY_PAN
+        };
+
         window.addEventListener("resize", onWindowResize);
         renderer.domElement.addEventListener("wheel", onMouseWheel, {
           passive: false,
@@ -655,6 +660,38 @@
         renderer.domElement.addEventListener("touchmove", handleTouchMove, {
           passive: false,
         });
+        
+        let touchStartTime = 0;
+        let touchStartPosition = { x: 0, y: 0 };
+
+        renderer.domElement.addEventListener("touchstart", function(event) {
+          if (event.touches.length === 1) {
+            touchStartTime = Date.now();
+            touchStartPosition.x = event.touches[0].clientX;
+            touchStartPosition.y = event.touches[0].clientY;
+          }
+        }, { passive: true });
+
+        renderer.domElement.addEventListener("touchend", function(event) {
+          if (event.changedTouches.length === 1) {
+            const touchEndTime = Date.now();
+            const touchDuration = touchEndTime - touchStartTime;
+            const touchEndPosition = {
+              x: event.changedTouches[0].clientX,
+              y: event.changedTouches[0].clientY
+            };
+            
+            const moveDistance = Math.sqrt(
+              Math.pow(touchEndPosition.x - touchStartPosition.x, 2) +
+              Math.pow(touchEndPosition.y - touchStartPosition.y, 2)
+            );
+            
+            if (touchDuration < 300 && moveDistance < 10) {
+              handleHotspotInteraction(event);
+            }
+          }
+        }, { passive: false });
+        
         renderer.domElement.addEventListener(
           "pointermove",
           onPointerMove,
@@ -1174,14 +1211,18 @@
           const material = new THREE.SpriteMaterial({ map: texture });
           const sprite = new THREE.Sprite(material);
           sprite.position.copy(position);
-          sprite.scale.set(40, 40, 1);
+          
+          const isMobile = window.innerWidth <= 768;
+          const baseScale = isMobile ? 60 : 40;
+          
+          sprite.scale.set(baseScale, baseScale, 1);
           sprite.userData = {
             onClick: onClickCallback,
-            targetScale: 40,
-            baseScale: 40,
+            targetScale: baseScale,
+            baseScale: baseScale,
             pulsePhase: Math.random() * Math.PI * 2,
             pulseSpeed: 0.02,
-            pulseAmplitude: 8,
+            pulseAmplitude: isMobile ? 12 : 8,
             isHovered: false,
             blinkPhase: Math.random() * Math.PI * 2,
             blinkSpeed: 0.008,
@@ -1278,10 +1319,29 @@
         renderer.render(scene, camera);
       }
 
-      document.addEventListener("click", function (event) {
+      document.addEventListener("click", handleHotspotInteraction);
+      document.addEventListener("touchend", handleHotspotInteraction);
+
+      function handleHotspotInteraction(event) {
+        event.preventDefault();
+        
+        let clientX, clientY;
+        
+        if (event.type === 'touchend') {
+          if (event.changedTouches && event.changedTouches.length > 0) {
+            clientX = event.changedTouches[0].clientX;
+            clientY = event.changedTouches[0].clientY;
+          } else {
+            return;
+          }
+        } else {
+          clientX = event.clientX;
+          clientY = event.clientY;
+        }
+        
         const mouseClick = new THREE.Vector2(
-          (event.clientX / window.innerWidth) * 2 - 1,
-          -(event.clientY / window.innerHeight) * 2 + 1
+          (clientX / window.innerWidth) * 2 - 1,
+          -(clientY / window.innerHeight) * 2 + 1
         );
 
         const clickRaycaster = new THREE.Raycaster();
@@ -1292,7 +1352,7 @@
           const clicked = intersects[0].object;
           if (clicked.userData.onClick) clicked.userData.onClick();
         }
-      });
+      }
 
       function hideTemp() {
         $("#tmp").fadeOut();
