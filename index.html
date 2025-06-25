@@ -346,26 +346,6 @@
       onclick="closePanoList()"
     ></div>
 
-    <div
-      id="loading"
-      class="fullwrapper"
-      style="display: table; width: 100%; height: 100%"
-    >
-      <div
-        style="
-          display: table-cell;
-          vertical-align: middle;
-          text-align: center;
-          color: white;
-          font-size: 30px;
-          padding: 50px;
-        "
-      >
-        Loading...
-        <div id="loadingperc" style="font-size: 12px"></div>
-      </div>
-    </div>
-
     <script src="js/three.min.js"></script>
     <script src="js/OrbitControls.js"></script>
 
@@ -1167,8 +1147,7 @@
                   "loadingText"
                 ).textContent = `Loading... ${progress.toFixed(0)}%`;
               } else {
-                // Jika tidak ada info progress, buat animasi fake yang smooth
-                const fakeProgress = Math.min((xhr.loaded / 500000) * 100, 90); // Estimasi
+                const fakeProgress = Math.min((xhr.loaded / 500000) * 100, 90);
                 document.getElementById("loadingProgressBar").style.width =
                   fakeProgress + "%";
                 document.getElementById(
