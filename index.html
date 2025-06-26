@@ -182,7 +182,7 @@
 
         <div class="landing-right">
           <div class="landing-title">
-            3D Virtual Reality Tour: Navigasi Kawasan Sekitar Masjid
+            360 Virtual Reality Tour: Navigasi Kawasan Sekitar Masjid
             Al-Hurriyyah
           </div>
           <div class="landing-subtitle">
@@ -272,7 +272,7 @@
                 Dikembangkan oleh Kelompok 3 K3 Grafika Komputer dan Visualisasi
               </div>
               <div class="developer-list">
-                Husni Abdillah (G64012312097) | Afif Fakhri Muhammad (G6401231007) | Daffa Naufal Mumtaz Heryadi (G6401231168) | [Nama Anggota Tambahan] ([NIM Anggota Tambahan])
+                Husni Abdillah (G64012312097) | Afif Fakhri Muhammad (G6401231007) | Daffa Naufal Mumtaz Heryadi (G6401231168)
               </div>
             </div>
           </div>
@@ -1621,6 +1621,56 @@
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
           closePanoList();
+        }
+      });
+
+      function initMobileTouchFix() {
+        if (window.innerWidth <= 768) {
+          const locationButtons = document.querySelectorAll('.location-btn');
+          locationButtons.forEach(button => {
+            const onclickAttr = button.getAttribute('onclick');
+            if (onclickAttr) {
+              const panoramaName = onclickAttr.match(/startTourAt\('([^']+)'\)/)[1];
+              
+              button.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                this.style.transform = 'scale(0.95)';
+                this.style.background = 'rgba(235, 173, 6, 0.9)';
+              });
+              
+              button.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                this.style.transform = 'scale(1)';
+                this.style.background = '';
+                
+                setTimeout(() => {
+                  startTourAt(panoramaName);
+                }, 50);
+              });
+              
+              button.addEventListener('touchcancel', function(e) {
+                this.style.transform = 'scale(1)';
+                this.style.background = '';
+              });
+            }
+          });
+          
+          const startTourBtn = document.querySelector('.start-tour-btn');
+          if (startTourBtn) {
+            startTourBtn.addEventListener('touchend', function(e) {
+              e.preventDefault();
+              setTimeout(() => {
+                startDefaultTour();
+              }, 50);
+            });
+          }
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', initMobileTouchFix);
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+          setTimeout(initMobileTouchFix, 100);
         }
       });
     </script>

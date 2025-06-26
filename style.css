@@ -48,6 +48,48 @@ html {
     #container canvas {
         touch-action: manipulation;
     }
+    
+    .location-btn {
+        min-height: 50px !important;
+        padding: 12px 8px !important;
+        font-size: 13px !important;
+        touch-action: manipulation !important;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        position: relative;
+        z-index: 100;
+        transition: all 0.1s ease;
+    }
+    
+    .location-btn:active {
+        transform: scale(0.95) !important;
+        background: rgba(235, 173, 6, 0.9) !important;
+    }
+    
+    .locations-grid {
+        touch-action: manipulation;
+        pointer-events: auto;
+    }
+    
+    .location-number,
+    .location-text {
+        pointer-events: none;
+        touch-action: none;
+    }
+    
+    .start-tour-btn {
+        min-height: 50px !important;
+        padding: 15px 30px !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        position: relative;
+        z-index: 100;
+        transition: all 0.1s ease;
+    }
+    
+    .start-tour-btn:active {
+        transform: scale(0.95) !important;
+    }
 }
 
 a {
