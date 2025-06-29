@@ -1,4 +1,4 @@
-# 3D Virtual Reality Tour: Navigasi Kawasan Sekitar Masjid Al-Hurriyyah
+# Pengembangan Tur Virtual Reality 360° untuk Navigasi Kawasan Sekitar Masjid Al-Hurriyah
 
 > Nikmati tour Virtual Reality (VR) berbasis web dengan navigasi 360° untuk mengeksplorasi 11 lokasi menarik di sekitar Masjid Al-Hurriyyah IPB!
 
@@ -6,30 +6,7 @@
 
 **[🌐 Kunjungi Virtual Tour](https://explore-alhurriyah-vr.vercel.app/)**
 
-## ✨ Fitur Utama
-
-### 🔄 **Virtual Reality 360°**
-- **11 lokasi panorama** yang dapat dijelajahi
-- **Navigasi interaktif** dengan hotspot navigasi
-- **Smooth transitions** antar panorama
-- **Zoom & pan controls** yang responsif
-
-### 🏠 **Landing Page Modern**
-- **Peta Interaktif** - Campus map untuk orientasi lokasi
-- **Grid 11 Lokasi** - Layout 3 kolom yang rapi dan responsive
-- **Smooth Animations** - Fade-in effects dan hover yang elegant
-
-### 🧭 **Navigasi Mudah**
-- 🏠 **Home Button** - Kembali ke beranda (kanan atas)
-- 🍔 **Hamburger Menu** - Quick access semua lokasi (kiri atas)
-- 🎵 **Audio Player** - Control musik background (bawah tengah)
-- 📱 **Mobile Friendly** - Touch gestures & scrollable layout
-
-### 🎮 **Kontrol Interaktif**
-- **Desktop**: Mouse drag rotate, scroll zoom, keyboard shortcuts
-- **Mobile**: Swipe rotate, pinch zoom, touch navigation
-- **Hotspots**: Arrow indicators untuk pindah lokasi
-- **Loading Smooth**: Progress bar dan preloading system
+https://github.com/user-attachments/assets/9f446813-e86d-48c4-9baa-37a818e57b72
 
 ## 🗺️ Lokasi yang Tersedia
 
@@ -44,16 +21,18 @@
 | 7 | **International Student Center** |
 | 8 | **Masjid Al-Hurriyyah Lt.1** |
 | 9 | **Masjid Al-Hurriyyah Lt.2** |
-| 10 | **Parkiran Al-Hurriyyah** |
+| 10 | **Parkiran Masjid Al-Hurriyyah** |
 | 11 | **Gedung SATARI** |
 
 ## 🛠️ Teknologi
 
-- **HTML5** - Struktur semantic modern
-- **CSS3** - Styling dengan flexbox & grid
-- **JavaScript ES6+** - Logic aplikasi modern
-- **Three.js** - 3D graphics dan VR rendering
-- **jQuery** - DOM manipulation
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="40" height="40"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="Three.js" width="40" height="40"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery" width="40" height="40"/>
+</p>
 
 
 ## 👥 Team
